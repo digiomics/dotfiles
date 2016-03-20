@@ -1,0 +1,14 @@
+startup_message off
+defscrollback 4000
+activity              "activity in %n (%t) [%w:%s]~"
+shelltitle '@|'
+caption always "$LOGNAME %{rw}%n%f %t %{wk} | %?%-Lw%?%{wb}[%n*%f%t]%?(%u)%?%{wk}%?%+Lw%? %{wk}"
+hardstatus alwayslastline "%{+b kr}host: %{kw}%H %{kg} | %c | %{ky}%d.%m.%Y | %{kr}(load: %l)%-0=%{kw}"
+#caption always "$LOGNAME %H %n %t"
+bindkey -k F1 prev
+bindkey -k F2 next
+bind M activity       "activity in %n (%t) [%w:%s]~"
+bind ! screen -t 'zuse' 0 ssh zuse
+hardcopy_append on
+bind h hardcopy
+termcapinfo xterm* ti@:te@
