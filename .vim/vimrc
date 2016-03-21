@@ -1,5 +1,17 @@
-filetype plugin on
+execute pathogen#infect()
+call pathogen#helptags()
+
+filetype plugin indent on
+set encoding=utf-8
+
 " syntax highlighting
 set bg=light
 syntax on
 
+" to enable airline from start
+set laststatus=2
+
+" Vom sensible vim
+set ruler
+set autoindent
+set backspace=indent,eol,start
