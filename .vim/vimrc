@@ -33,11 +33,6 @@ set scrolloff=4
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
 
-"Set colorscheme
-set t_Co=16
-set background=dark
-colorscheme solarized
-
 "Higlight current line only in insert mode
 autocmd InsertLeave * set nocursorline
 autocmd InsertEnter * set cursorline
@@ -46,9 +41,15 @@ autocmd InsertEnter * set cursorline
 highlight CursorLine ctermbg=8 cterm=NONE
 
 
+"Set colorscheme
+set t_Co=256
+set background=dark
+colorscheme solarized
+
+
 " Set linenumber absolute, relative or off
 map <leader>na :set number<CR>
-map <leader>nr :set relativelinenumber<CR>
+map <leader>nr :set relativenumber<CR>
 map <leader>n0 :set nonumber<CR>
 
 set tags=~/.vimtags
