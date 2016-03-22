@@ -5,13 +5,50 @@ filetype plugin indent on
 set encoding=utf-8
 
 " syntax highlighting
-set bg=light
 syntax on
+
+" set leader to space
+let mapleader = "\<Space>"
 
 " to enable airline from start
 set laststatus=2
+let g:airline_theme='solarized'
 
-" Vom sensible vim
+" From sensible vim
 set ruler
-set autoindent
 set backspace=indent,eol,start
+
+set autoindent " preserve indent level on newlines
+set tabstop=2 " a tab is two spaces
+set shiftwidth=2 " an autoindent (with <<) is two spaces
+set expandtab " use spaces, not tabs
+set smarttab " use shiftwidth/tabstop based on context
+
+"Show line number
+set number
+
+"Show at least 4 lines above or below cursor
+set scrolloff=4
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+"Set colorscheme
+set t_Co=16
+set background=dark
+colorscheme solarized
+
+"Higlight current line only in insert mode
+autocmd InsertLeave * set nocursorline
+autocmd InsertEnter * set cursorline
+
+"Highlight cursor
+highlight CursorLine ctermbg=8 cterm=NONE
+
+
+" Set linenumber absolute, relative or off
+map <leader>na :set number<CR>
+map <leader>nr :set relativelinenumber<CR>
+map <leader>n0 :set nonumber<CR>
+
+set tags=~/.vimtags
