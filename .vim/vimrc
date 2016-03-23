@@ -42,8 +42,9 @@ highlight CursorLine ctermbg=8 cterm=NONE
 
 
 "Set colorscheme
-set t_Co=256
+set t_Co=16
 set background=dark
+"let g:solarized_termcolors=256
 colorscheme solarized
 
 
@@ -53,3 +54,17 @@ map <leader>nr :set relativenumber<CR>
 map <leader>n0 :set nonumber<CR>
 
 set tags=~/.vimtags
+
+" incremental search
+set incsearch
+
+" show matching brackets in per files
+autocmd FileType perl set showmatch
+
+" make tab in v mode ident code
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+" make tab in normal mode ident code
+nmap <tab> I<tab><esc>
+nmap <s-tab> ^i<bs><esc>
