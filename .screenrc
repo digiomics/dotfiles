@@ -7,8 +7,30 @@ hardstatus alwayslastline "%{+b kr}host: %{kw}%H %{kg} | %c | %{ky}%d.%m.%Y | %{
 #caption always "$LOGNAME %H %n %t"
 bindkey -k F1 prev
 bindkey -k F2 next
+bindkey "^[b" eval "copy" "stuff ^b"  # enter copy mode and move up one page
+bindkey "^k" eval "copy" "stuff k"    # enter copy mode and move up one line
+bindkey -m "^[b" stuff ^b             # move up one page
+bindkey -m "^k" stuff k               # move up one line
 bind M activity       "activity in %n (%t) [%w:%s]~"
-bind ! screen -t 'zuse' 0 ssh zuse
 hardcopy_append on
 bind h hardcopy
-termcapinfo xterm* ti@:te@
+
+autodetach on
+# use backtick for prefix key instead of Ctrl-A
+escape ``
+
+# so it won't seem like there is a delay when entering copy mode
+msgminwait 0
+
+# Enable 256-color mode when screen is started with TERM=xterm-256color
+# Taken from: http://frexx.de/xterm-256-notes/
+
+# # # Note that TERM != "xterm-256color" within a screen window. Rather it is
+# # # "screen" or "screen-bce"
+# # # 
+# # # terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+  
