@@ -1,0 +1,8 @@
+-f ~/.vimtags 
+--recurse=yes
+--totals=yes
+--exclude=.git 
+--exclude='*~' 
+--extra=q 
+--languages=Perl 
+--langmap=Perl:+.t
