@@ -49,11 +49,11 @@ colorscheme solarized
 
 
 " Set linenumber absolute, relative or off
-map <leader>na :set number<CR>
-map <leader>nr :set relativenumber<CR>
-map <leader>n0 :set nonumber<CR>
+map <leader>na :set number!<CR>
+map <leader>nr :set relativenumber!<CR>
 
 set tags=~/.vimtags
+set tags=./tags,tags
 
 " incremental search
 set incsearch
@@ -68,3 +68,14 @@ vmap <s-tab> <gv
 " make tab in normal mode ident code
 nmap <tab> I<tab><esc>
 nmap <s-tab> ^i<bs><esc>
+
+" remove all trailing whitespaces on file save
+autocmd BufWritePre * %s/\s\+$//e
+
+" Use ctrl-[hjkl] to select the active split!
+ nmap <leader>k <c-w>k
+ nmap <leader>j <c-w>j
+ nmap <leader>h <c-w>h
+ nmap <leader>l <c-w>l
+ nmap <leader>m <c-w>_<c-w>\|
+ nmap <leader>= <c-w>=
