@@ -13,6 +13,7 @@ let mapleader = "\<Space>"
 " to enable airline from start
 set laststatus=2
 let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 
 " From sensible vim
 set ruler
